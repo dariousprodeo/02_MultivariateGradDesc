@@ -1,6 +1,9 @@
-# Import of main function
+# Importing main function
 import main
 from main import gradDesc
+
+# Importing dataset
+from dataset import dataset
 
 # Bool to fixed params
 isFixed_params = True
@@ -13,6 +16,9 @@ if isFixed_params:
     fixed_stepSize = 0.5
     fixed_maxIt = 200
 
+# Passing params to dataset
+    dataset(fixed_feats_num)
+# Passing params to alg
     gradDesc(fixed_feats_num, fixed_stepSize, fixed_maxIt, count)
 else:
 # Number of features
@@ -30,4 +36,7 @@ else:
     if maxIt <= 0:
         raise ValueError("Maximum iteration should be a positive integer")
 
+# Passing params to dataset
+    dataset(feats_num)
+# Passing params to alg
     gradDesc(feats_num, stepSize, maxIt, count)
