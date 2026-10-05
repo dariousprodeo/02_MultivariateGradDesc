@@ -17,3 +17,4 @@ def dataset(feats_num):
             else:
                 dataset_instances[i,j] = random.uniform(-5,5)
 
+    return dataset_instances
