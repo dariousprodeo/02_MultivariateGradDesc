@@ -1,9 +1,8 @@
 # Importing exec script
-import exec
-from exec import exec
+from exec import *
 
 # Importing dataset
-from dataset import dataset
+from dataset import *
 
 # Bool to fixed params
 isFixed_params = True
