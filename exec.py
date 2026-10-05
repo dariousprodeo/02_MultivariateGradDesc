@@ -25,9 +25,9 @@ def exec(feats_num, stepSize, maxIt, count, dataset):
 
     else:
         for i in range(feats_num):
-            tmp = float(input("Enter the coordinate corresponding to i = ", i))
+            tmp = float(input(f"Enter the coordinate corresponding to i = {i}: "))
             starting_point[0,i] = tmp
 
-            # Calling the algorithm
-            gradDesc(feats_num, stepSize, maxIt, count, dataset, starting_point)
-            return
+        # Calling the algorithm
+        gradDesc(feats_num, stepSize, maxIt, count, dataset, starting_point)
+        return
