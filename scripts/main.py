@@ -1,9 +1,10 @@
 import numpy as np
 
-def gradDesc(feats_num, stepSize, maxIt, count, dataset, dataset_dimension, starting_point):
+def gradDesc(feats_num, stepSize, maxIt, count, dataset, starting_point, dataset_dimension):
 
     # Initializing column vector
     theta = starting_point
+    print(theta)
 
     # Initializing the next column vector
     theta_next = np.ones((feats_num,1))
