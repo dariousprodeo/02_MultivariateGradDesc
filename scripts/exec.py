@@ -10,15 +10,15 @@ def exec(feats_num, stepSize, maxIt, count, dataset, dataset_dimension):
     fixed = True
 
     # Initializing starting point
-    starting_point = np.ones((1,feats_num))
+    starting_point = np.ones((feats_num,1))
 
     if fixed:
 
         # Starting point for loop
         for i in range(feats_num):
 
-            # Assigning values to the row vector
-            starting_point[0,i] = random.uniform(-2,2)
+            # Assigning values to the column vector
+            starting_point[i,0] = random.uniform(-2,2)
 
         # Calling the algorithm
         gradDesc(feats_num, stepSize, maxIt, count, dataset,starting_point, dataset_dimension)
