@@ -22,4 +22,10 @@ def dataset(feats_num):
             else:
                 dataset_instances[i,j] = random.uniform(-5,5)
 
-    return dataset_instances
+    # Initializing labels as a column vector
+    labels = np.ones((dataset_dim, 1))
+
+    for i in range(dataset_dim):
+        labels[i, 0] = random.uniform(10, 20)
+
+    return dataset_instances,labels
