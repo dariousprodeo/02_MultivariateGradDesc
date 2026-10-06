@@ -19,7 +19,7 @@ if isFixed_params:
     dt = dataset(fixed_feats_num)
 
 # Passing to exec
-    exec(fixed_feats_num, fixed_stepSize, fixed_maxIt, count, dt)
+    exec(fixed_feats_num, fixed_stepSize, fixed_maxIt, count, dt, dataset_dimension())
 
 else:
 # Number of features
@@ -41,4 +41,4 @@ else:
         raise ValueError("Maximum iteration should be a positive integer")
 
 # Passing to exec
-    exec(feats_num, stepSize, maxIt, count, dt)
+    exec(feats_num, stepSize, maxIt, count, dt, dataset_dimension())
