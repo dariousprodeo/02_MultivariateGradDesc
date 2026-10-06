@@ -6,7 +6,7 @@ def gradDesc(feats_num, stepSize, maxIt, count, dataset, starting_point, dataset
 
     # Initializing column vector
     theta = starting_point
-    print(theta)
+    print("Starting point:\n",theta)
 
     # Initializing the next column vector
     theta_next = np.ones((feats_num,1))
@@ -19,12 +19,9 @@ def gradDesc(feats_num, stepSize, maxIt, count, dataset, starting_point, dataset
 
     # Initializing partial derivatives column vector
     pds = np.zeros((feats_num,1))
-    print("Dataset", dataset[0])
-    print("Inner sum", inner_sum)
+    print("Dataset\n", dataset[0])
+    print("Inner sum\n", inner_sum)
 
-    for j in range(feats_num):
-        for i in range(dataset_dimension):
-
-            pds[j] += dataset[0][i] * inner_sum[i]
-
+    pds = dataset[0].T @ inner_sum
+    
     print("Partial derivatives",pds)
