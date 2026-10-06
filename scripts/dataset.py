@@ -12,13 +12,14 @@ def dataset(feats_num):
     dataset_dim = dataset_dimension()
 
     # Initializing instances
-    dataset_instances = np.ones((dataset_dim, feats_num))
+    dataset_instances = np.ones((dataset_dim, feats_num + 1))
 
     for i in range(dataset_dim):
-        for j in range(feats_num):
+        for j in range(feats_num + 1):
 
             if j == 0:
-                dataset_instances[i,j] = 1
+                # Each element of dataset_instances is already 1
+                continue
             else:
                 dataset_instances[i,j] = random.uniform(-5,5)
 
