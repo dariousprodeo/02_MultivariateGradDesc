@@ -4,7 +4,7 @@ import random
 
 def exec(feats_num, stepSize, maxIt, count, dataset, dataset_dimension):
     print("Number of features: ",feats_num)
-
+    print("Number of features: ", dataset_dimension)
     # Fixed and non-fixed option to get the starting point
     fixed = True
 

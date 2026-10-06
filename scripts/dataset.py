@@ -9,10 +9,10 @@ def dataset_dimension():
 
 def dataset(feats_num):
 
+    dataset_dim = dataset_dimension()
+
     # Initializing instances
     dataset_instances = np.ones((dataset_dim, feats_num))
-
-    dataset_dim = dataset_dimension()
 
     for i in range(dataset_dim):
         for j in range(feats_num):
