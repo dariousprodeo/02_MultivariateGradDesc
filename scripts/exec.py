@@ -20,7 +20,7 @@ def exec(feats_num, stepSize, maxIt, count, dataset, dataset_dimension):
             starting_point[0,i] = random.uniform(-2,2)
 
         # Calling the algorithm
-        gradDesc(feats_num, stepSize, maxIt, count, dataset,starting_point)
+        gradDesc(feats_num, stepSize, maxIt, count, dataset,starting_point, dataset_dimension)
         return
 
     else:
@@ -29,5 +29,5 @@ def exec(feats_num, stepSize, maxIt, count, dataset, dataset_dimension):
             starting_point[0,i] = tmp
 
         # Calling the algorithm
-        gradDesc(feats_num, stepSize, maxIt, count, dataset, starting_point)
+        gradDesc(feats_num, stepSize, maxIt, count, dataset,starting_point, dataset_dimension)
         return

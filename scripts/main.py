@@ -1,6 +1,6 @@
 import numpy as np
 
-def gradDesc(feats_num, stepSize, maxIt, count, dataset,starting_point):
+def gradDesc(feats_num, stepSize, maxIt, count, dataset, dataset_dimension, starting_point):
 
     # Initializing column vector
     theta = starting_point
