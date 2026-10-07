@@ -1,8 +1,6 @@
 import numpy as np
 
-def gradDesc(feats_num, step_size, maxIt, count, dataset_instances, labels, starting_point, dataset_dimension):
-
-    # NOTE: dataset[0] = instances, dataset[1] = labels
+def gradDesc(feats_num, step_size, maxIt, dataset_instances, labels, starting_point, dataset_dimension):
 
     # Initializing column vector theta(k)
     theta = starting_point
@@ -18,6 +16,8 @@ def gradDesc(feats_num, step_size, maxIt, count, dataset_instances, labels, star
     theta_next = theta - step_size * pds
 
     err = np.linalg.norm(theta - theta_next)
+
+    count = 0
 
     # TODO: another parameter needed for tolerance
     while err > 1e-6 and count < maxIt:
