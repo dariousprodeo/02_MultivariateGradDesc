@@ -9,24 +9,29 @@ def dataset_dimension():
 
 def dataset(feats_num):
 
-    dataset_dim = dataset_dimension()
+    # Condition on testing params
+    if isTesting_params:
+        return
+    else:
 
-    # Initializing instances
-    dataset_instances = np.ones((dataset_dim, feats_num + 1))
+        dataset_dim = dataset_dimension()
 
-    for i in range(dataset_dim):
-        for j in range(feats_num + 1):
+        # Initializing instances
+        dataset_instances = np.ones((dataset_dim, feats_num + 1))
 
-            if j == 0:
-                # Each element of dataset_instances is already 1
-                continue
-            else:
-                dataset_instances[i,j] = random.uniform(-5,5)
+        for i in range(dataset_dim):
+            for j in range(feats_num + 1):
 
-    # Initializing labels as a column vector
-    labels = np.ones((dataset_dim, 1))
+                if j == 0:
+                    # Each element of dataset_instances is already 1
+                    continue
+                else:
+                    dataset_instances[i,j] = random.uniform(-5,5)
 
-    for i in range(dataset_dim):
-        labels[i, 0] = random.uniform(10, 20)
+        # Initializing labels as a column vector
+        labels = np.ones((dataset_dim, 1))
 
-    return dataset_instances,labels
+        for i in range(dataset_dim):
+            labels[i, 0] = random.uniform(10, 20)
+
+        return dataset_instances,labels

@@ -1,5 +1,4 @@
 import numpy as np
-from exec import *
 
 def testing():
 
@@ -9,8 +8,10 @@ def testing():
     dataset_instances_test = np.array([[1,1,1],[1,2,3],[1,7,1],[1,-1,-3]])
     labels_test = np.array([[3],[14],[51],[11]])
 
-    # Column vector theta
+    # Column vector theta(k)
     starting_point_test = np.ones([feats_num_test + 1,1])
-    dataset_dimension_test = 4
 
-    return feats_num_test, step_size_test,max_it_test, dataset_instances_test, labels_test, starting_point_test
+    # Given matrix of instances we compute the dimension of the dataset
+    dataset_dim_test = dataset_instances_test.shape[0]
+
+    return feats_num_test, step_size_test, max_it_test, dataset_instances_test, labels_test, starting_point_test, dataset_dim_test

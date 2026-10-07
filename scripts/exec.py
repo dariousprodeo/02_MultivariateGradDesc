@@ -2,33 +2,27 @@ from main import *
 import numpy as np
 import random
 
-def exec(feats_num, stepSize, maxIt, count, dataset, dataset_dimension):
+def exec(feats_num, step_size, maxIt, count, dataset_instances, labels, starting_point, dataset_dimension, isTesting_params):
 
     print("Number of features: ",feats_num)
-    print("Number of features: ", dataset_dimension)
-    # Fixed and non-fixed option to get the starting point
-    fixed = True
+    print("Dataset dimension: ", dataset_dimension)
 
-    # Initializing starting point
-    starting_point = np.ones((feats_num + 1,1))
-
-    if fixed:
-
-        # Starting point for loop
-        for i in range(feats_num + 1):
-
-            # Assigning values to the column vector
-            starting_point[i,0] = random.uniform(-2,2)
+    if isTesting_params:
 
         # Calling the algorithm
-        gradDesc(feats_num, stepSize, maxIt, count, dataset,starting_point, dataset_dimension)
+        gradDesc(feats_num, step_size, maxIt, count, dataset_instances, labels, starting_point, dataset_dimension)
         return
 
+    # Condition on non-testing params
     else:
+
+        # Initializing starting point
+        starting_point = np.ones((feats_num + 1, 1))
+
         for i in range(feats_num):
             tmp = float(input(f"Enter the coordinate corresponding to i = {i}: "))
             starting_point[0,i] = tmp
 
         # Calling the algorithm
-        gradDesc(feats_num, stepSize, maxIt, count, dataset,starting_point, dataset_dimension)
+        gradDesc(feats_num, step_size, maxIt, count, dataset,starting_point, dataset_dimension)
         return
