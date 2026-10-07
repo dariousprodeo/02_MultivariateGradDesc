@@ -1,7 +1,7 @@
 from main import *
 import numpy as np
 import random
-from params import *
+from settings import *
 from test import testing
 
 def run():
