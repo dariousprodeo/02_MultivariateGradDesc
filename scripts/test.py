@@ -13,4 +13,4 @@ def testing():
     starting_point_test = np.ones([feats_num_test + 1,1])
     dataset_dimension_test = 4
 
-    return feats_num_test, step_size_test, dataset_instances_test, labels_test, starting_point_test
+    return feats_num_test, step_size_test,max_it_test, dataset_instances_test, labels_test, starting_point_test
