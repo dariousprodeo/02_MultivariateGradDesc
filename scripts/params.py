@@ -4,22 +4,32 @@ from exec import *
 # Importing dataset
 from dataset import *
 
+# Importing test script
+from test import testing
+
 # Bool to fixed params
-isFixed_params = True
+isTesting_params = True
 
 count = 0
 
-# Condition on fixed parameters
-if isFixed_params:
-    fixed_feats_num = 2
-    fixed_stepSize = 0.1
-    fixed_maxIt = 200
+# Condition on testing parameters
+if isTesting_params:
+
+    testing_params = testing()
+
+    feats_num_test = testing_params[0]
+    step_size_test = testing_params[1]
+    max_it_test = testing_params[2]
 
 # Passing feature number to synthetic dataset
-    dt = dataset(fixed_feats_num)
+    dt = dataset(testing_params[0])
 
-# Passing to exec
-    exec(fixed_feats_num, fixed_stepSize, fixed_maxIt, count, dt, dataset_dimension())
+    dataset_instances_test = testing_params[3]
+    labels_test = testing_params[4]
+    starting_point_test = testing_params[5]
+
+# Passing testing params to exec
+    exec(feats_num_test, step_size_test, max_it_test, count, dt, dataset_dimension())
 
 else:
 # Number of features
