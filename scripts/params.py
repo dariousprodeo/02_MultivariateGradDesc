@@ -12,7 +12,7 @@ count = 0
 # Condition on fixed parameters
 if isFixed_params:
     fixed_feats_num = 2
-    fixed_stepSize = 0.5
+    fixed_stepSize = 0.1
     fixed_maxIt = 200
 
 # Passing feature number to synthetic dataset
