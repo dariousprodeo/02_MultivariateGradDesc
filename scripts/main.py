@@ -2,17 +2,37 @@ import numpy as np
 
 def gradDesc(feats_num, stepSize, maxIt, count, dataset, starting_point, dataset_dimension):
 
-    # Initializing column vector
+    # NOTE: dataset[0] = instances, dataset[1] = labels
+
+    # Initializing column vector theta(k)
     theta = starting_point
-    print(theta)
 
-    # Initializing the next column vector
-    theta_next = np.ones((feats_num,1))
+    # Labels
+    labels = dataset[1]
 
-    # First iteration needed for error condition in the while loop
-    for i in range(feats_num):
-        theta_next[i,0] = theta[i,0] - stepSize*dataset
+    # Summation column vector
+    inner_sum = dataset[0] @ theta - labels
 
-    while count < maxIt:
+    # Initializing partial derivatives column vector
+    pds = np.zeros((feats_num + 1, 1))
+    pds = (dataset[0].T @ inner_sum) / dataset_dimension
+
+    # First iteration theta(k + 1) for computing the error
+    theta_next = theta - stepSize * pds
+
+    err = np.linalg.norm(theta - theta_next)
+
+    # TODO: another parameter needed for tolerance
+    while err > 1e-6 and count < maxIt:
+        theta = theta_next
+
+        inner_sum = dataset[0] @ theta - labels
+        pds = (dataset[0].T @ inner_sum)/dataset_dimension
+
+        theta_next = theta - stepSize * pds
+
+        err = np.linalg.norm(theta - theta_next)
+        print(f"\nNew point {count}\n", theta_next)
+        print(f"\nError {count}\n", err)
 
         count += 1
