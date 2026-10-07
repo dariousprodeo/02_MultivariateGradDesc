@@ -19,13 +19,13 @@ def run():
         starting_point = testing_params[5]
         dataset_dim = testing_params[6]
 
-    print("Number of features: ",feats_num)
-    print("Dataset dimension: ", dataset_dim)
+        print("Number of features: ",feats_num)
+        print("Dataset dimension: ", dataset_dim)
 
-    # Calling the algorithm
-    return gradDesc(feats_num, step_size, maxIt, dataset_instances, labels, starting_point, dataset_dim)
+        # Calling the algorithm
+        return gradDesc(feats_num, step_size, maxIt, dataset_instances, labels, starting_point, dataset_dim)
 
-    # Condition on non-testing params
+        # Condition on non-testing params
 
 
 if __name__ == "__main__":
