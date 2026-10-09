@@ -22,11 +22,11 @@ def run():
         print("Number of features: ",feats_num)
         print("Dataset dimension: ", dataset_dim)
 
-        # Calling the algorithm
-        return gradDesc(feats_num, step_size, maxIt, dataset_instances, labels, starting_point, dataset_dim)
+        if GRADIENT_METHOD == "stochastic":
+            return stochastic(feats_num, step_size, maxIt, dataset_instances, labels, starting_point, dataset_dim)
 
-        # Condition on non-testing params
-
+        elif GRADIENT_METHOD == "batch":
+            return gradDesc(feats_num, step_size, maxIt, dataset_instances, labels, starting_point, dataset_dim)
 
 if __name__ == "__main__":
     run()
