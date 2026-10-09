@@ -1,6 +1,4 @@
 from main import *
-import numpy as np
-import random
 from settings import *
 from test import testing
 

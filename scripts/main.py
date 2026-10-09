@@ -7,11 +7,11 @@ def gradDesc(feats_num, step_size, maxIt, dataset_instances, labels, starting_po
     theta = starting_point
 
     # Summation column vector
-    inner_sum = dataset_instances @ theta - labels
+    error = dataset_instances @ theta - labels
 
     # Initializing partial derivatives column vector
     pds = np.zeros((feats_num + 1, 1))
-    pds = (dataset_instances.T @ inner_sum) / dataset_dimension
+    pds = (dataset_instances.T @ error) / dataset_dimension
 
     # First iteration theta(k + 1) for computing the error
     theta_next = theta - step_size * pds
@@ -24,8 +24,8 @@ def gradDesc(feats_num, step_size, maxIt, dataset_instances, labels, starting_po
     while err > 1e-6 and count < maxIt:
         theta = theta_next
 
-        inner_sum = dataset_instances @ theta - labels
-        pds = (dataset_instances.T @ inner_sum)/dataset_dimension
+        error = dataset_instances @ theta - labels
+        pds = (dataset_instances.T @ error)/dataset_dimension
 
         theta_next = theta - step_size * pds
 
@@ -42,8 +42,8 @@ def stochastic(feats_num, step_size, maxIt, dataset_instances, labels, starting_
     random_instance_index = random.randint(0, dataset_dimension - 1)
     random_instance = dataset_instances[random_instance_index:random_instance_index + 1, :]
 
-    inner_sum = random_instance @ theta - labels[random_instance_index]
-    theta_next = theta - step_size * inner_sum * random_instance.T
+    error = random_instance @ theta - labels[random_instance_index]
+    theta_next = theta - step_size * error * random_instance.T
 
     err = np.linalg.norm(theta - theta_next)
 
@@ -54,8 +54,8 @@ def stochastic(feats_num, step_size, maxIt, dataset_instances, labels, starting_
         random_instance_index = random.randint(0, dataset_dimension - 1)
         random_instance = dataset_instances[random_instance_index:random_instance_index + 1, :]
 
-        inner_sum = random_instance @ theta - labels[random_instance_index]
-        theta_next = theta - step_size * inner_sum * random_instance.T
+        error = random_instance @ theta - labels[random_instance_index]
+        theta_next = theta - step_size * error * random_instance.T
 
         err = np.linalg.norm(theta - theta_next)
 
