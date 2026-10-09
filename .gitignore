@@ -224,3 +224,7 @@ __marimo__/
 
 # Idea folder
 .idea*
+
+# Utils
+utils/*
+!utils/.gitkeep
