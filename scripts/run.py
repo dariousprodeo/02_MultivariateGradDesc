@@ -17,6 +17,8 @@ def run():
         starting_point = testing_params[5]
         dataset_dim = testing_params[6]
 
+        b = testing_params[7]
+
         print("Number of features: ",feats_num)
         print("Dataset dimension: ", dataset_dim)
 
@@ -25,6 +27,9 @@ def run():
 
         elif GRADIENT_METHOD == "batch":
             return gradDesc(feats_num, step_size, maxIt, dataset_instances, labels, starting_point, dataset_dim)
+
+        elif GRADIENT_METHOD == "mini-batch":
+            return mini_batch(feats_num, step_size, maxIt, dataset_instances, labels, starting_point, dataset_dim, b)
 
 if __name__ == "__main__":
     run()
