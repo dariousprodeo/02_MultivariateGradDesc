@@ -228,3 +228,6 @@ __marimo__/
 # Utils
 utils/*
 !utils/.gitkeep
+
+# Settings
+settings.py
