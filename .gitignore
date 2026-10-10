@@ -230,4 +230,4 @@ utils/*
 !utils/.gitkeep
 
 # Settings
-settings.py
+scripts/settings.py
